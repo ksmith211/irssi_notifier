@@ -5,7 +5,7 @@
 # any other named pipe and notifier you want
 
 (ssh $REMOTE_ADDRESS -o PermitLocalCommand=no  \
-  ": > .irssi/fnotify ; tail -f .irssi/fnotify " |  \
+  ": > .irssi/fnotify ; tail -f .irssi/fnotify 2>/dev/null" |  \
 while read heading message; do                      \
   terminal-notifier -title "${heading}" -message "${message}";      \
 done)&
